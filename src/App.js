@@ -1,26 +1,51 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import ChatBot from 'react-simple-chatbot';
+
+
+import styled from 'styled-components';
+
 import './App.css';
+
+const Tile = styled.div`
+display:grid;
+align-items:center;
+justify-content:center;
+padding-top:120px;
+`;
+const Wrapper = styled.section`
+  
+   min-height: 100vh;
+    padding:0;
+    margin:0;
+    background: linear-gradient(to bottom, #9933ff 0%, #3333ff 100%);
+`;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Wrapper>
+        <Tile>
+        <ChatBot steps={[
+    {
+      id: 'hello-world',
+      message: 'Hello World!',
+      end: true,
+    },
+    {
+      id: '2',
+      user: true,
+      trigger: '3',
+    },
+    {
+      id: '3',
+      message: 'Hi {previousValue}, Thanks for stopping by!',
+      end: true,
+    },
+  ]}
+/>
+        </Tile>
+      </Wrapper>
     );
   }
 }
